@@ -6,12 +6,13 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #cfe8ff 0%, #d9d6ff 50%, #e8ddff 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    color: #1f2937;
 }
 
 .app {
@@ -19,12 +20,16 @@ body {
     border-radius: 12px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     width: 100%;
-    max-width: 600px;
-    padding: 40px;
+    max-width: 920px;
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 22px;
 }
 
 .form-section {
-    margin-bottom: 40px;
+    margin-bottom: 8px;
+    grid-column: 1 / -1;
 }
 
 form {
@@ -67,7 +72,77 @@ input[type="submit"]:active {
 }
 
 .images-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 320px;
+}
+
+.images-section,
+.content-section {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 14px;
+    background: #fafafa;
+}
+
+.images-section h2,
+.content-section h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.images-section a {
+    display: block;
+    text-decoration: none;
+    color: #1f2937;
+    padding: 9px 10px;
+    border-radius: 7px;
+    border: 1px solid transparent;
+    background: #ffffff;
+    word-break: break-word;
+}
+
+.images-section a:hover {
+    border-color: #c7d2fe;
+    background: #eef2ff;
+}
+
+.images-section p,
+.content-section p {
+    color: #4b5563;
+    font-size: 14px;
+}
+
+.content-section {
+    min-height: 320px;
+}
+
+.content-section pre {
+    margin-top: 10px;
+    background: #111827;
+    color: #e5e7eb;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow: auto;
+    max-height: 460px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    .app {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+    }
 }
