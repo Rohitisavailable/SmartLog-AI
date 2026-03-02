@@ -21,7 +21,29 @@
 
         <div class="images-section">
 
+            <h2>Uploaded Files</h2>
 
+            {% if files|length == 0 %}
+                <p>No files uploaded yet.</p>
+            {% endif %}
+
+            {% for file in files %}
+                <a href="{{ url_for('view_file', filename=file) }}">
+                    {{ file }}
+                </a>
+            {% endfor %}
+
+        </div>
+
+        <div class="content-section">
+            {% if error_message %}
+                <p>{{ error_message }}</p>
+            {% elif selected_file and file_content is not none %}
+                <h3>Showing: {{ selected_file }}</h3>
+                <pre>{{ file_content }}</pre>
+            {% else %}
+                <p>Select a file to view its content.</p>
+            {% endif %}
         </div>
 
 
